@@ -759,6 +759,9 @@ void pep_destroy(PEP * pep) {
         pep_log_warn("pep_destroy: some OH->destroy() failed...");
     }
 
+    /* destroy all endpoint urls if any */
+    pep_llist_delete(pep->option_endpoint_urls);
+
     free(pep);
 }
 
